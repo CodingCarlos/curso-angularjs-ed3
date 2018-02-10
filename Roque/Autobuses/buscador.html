@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Buscador</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body ng-app="app">
+
+        <div class="container" ng-controller="buscadorCtrl as search">
+
+            <div class="buscador">
+                <h4>Busca por línea o autobús</h4>
+                <input type="search" ng-model="search.busqueda">
+            </div>
+
+            <div class="resultados">
+                <ul>
+                    <li ng-repeat="parada in search.paradas | filter: search.busqueda track by $index ">
+                        Parada: <strong>{{parada.parada}} </strong>| Buses: <span ng-repeat="buses in parada.buses">{{buses}}{{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span>
+                    </li>
+                </ul>
+                <div ng-if="(search.paradas | filter: search.busqueda).length == 0">
+                    Lo sentimos, no hay resultados
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script>
+
+            
+
+            // APP
+            angular.module('app', []);
+
+
+            // CONTROLLERS
+
+            // ** Buscador
+            angular.module('app').controller('buscadorCtrl', buscadorCtrl)
+
+            function buscadorCtrl (paradas) {
+
+                var self = this;
+                self.paradas = paradas;
+                console.log(paradas);
+                
+
+            }
+
+
+            // SERVICES
+			angular.module('app').service('paradas', paradaService);
+
+            function paradaService() {
+
+                var lista = [
+                    {
+                        parada: "123",
+                        buses: [
+                            234,
+                            12,
+                            323
+                        ]
+                    },
+                    {
+                        parada: "234",
+                        buses: [
+                            1,
+                            12,
+                            45
+                        ]
+                    },
+                    {
+                        parada: "434",
+                        buses: [
+                            45,
+                            123,
+                            54
+                        ]
+                    },
+                    {
+                        parada: "523",
+                        buses: [
+                            132,
+                            433,
+                            123
+                        ]
+                    }
+                ]
+
+                return lista;
+            }
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+:root {
+    --main_bg: #f1f1f1;
+    --main: #444;
+}
+
+body {
+    background: var(--main_bg);
+    padding: 50px;
+    font-family: sans-serif;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+h4 {
+    color: var(--main);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
