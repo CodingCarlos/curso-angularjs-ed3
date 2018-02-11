@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Buscador</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body ng-app="app">
@@ -14,18 +15,23 @@
 
             <div class="buscador">
                 <h4>Busca por línea o autobús</h4>
-                <input type="search" ng-model="search.busqueda">
+                <div class="input-helper">
+                    <input type="search" ng-model="search.busqueda">
+                    <button ng-click="buscar(search.busqueda)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </div>
             </div>
 
             <div class="resultados">
-                <ul>
+                <!-- <ul>
                     <li ng-repeat="parada in search.paradas | filter: search.busqueda track by $index ">
                         Parada: <strong>{{parada.parada}} </strong>| Buses: <span ng-repeat="buses in parada.buses">{{buses}}{{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span>
                     </li>
                 </ul>
                 <div ng-if="(search.paradas | filter: search.busqueda).length == 0">
                     Lo sentimos, no hay resultados
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -44,12 +50,15 @@
             // ** Buscador
             angular.module('app').controller('buscadorCtrl', buscadorCtrl)
 
-            function buscadorCtrl (paradas) {
+            function buscadorCtrl ($scope, paradas) {
 
                 var self = this;
-                self.paradas = paradas;
-                console.log(paradas);
+                self.paradas = paradas;     
+                console.log(self.paradas);
                 
+                $scope.buscar = function(srch) {
+                    console.log(srch);
+                }
 
             }
 

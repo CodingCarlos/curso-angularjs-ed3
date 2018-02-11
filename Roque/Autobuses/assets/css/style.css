@@ -1,27 +1,30 @@
-:root {
-    --main_bg: #f1f1f1;
-    --main: #444;
-}
-
 body {
-    background: var(--main_bg);
-    padding: 50px;
-    font-family: sans-serif;
-}
+  background: #f1f1f1;
+  padding: 50px;
+  font-family: sans-serif; }
 
 input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 30px;
-}
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; }
 
 h4 {
-    color: var(--main);
-}
+  color: #444; }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.buscador .input-helper {
+  position: relative; }
+  .buscador .input-helper button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer; }
