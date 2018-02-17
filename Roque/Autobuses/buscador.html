@@ -11,27 +11,28 @@
     </head>
     <body ng-app="app">
 
-        <div class="container" ng-controller="buscadorCtrl as search">
+        <div id="buscador" class="container" ng-controller="buscadorCtrl as search">
 
             <div class="buscador">
                 <h4>Busca por línea o autobús</h4>
                 <div class="input-helper">
-                    <input type="search" ng-model="search.busqueda">
-                    <button ng-click="buscar(search.busqueda)">
+                    <input type="search" ng-model="search.busqueda.parada">
+                    <button ng-click="search.buscar()">
                         <span class="fa fa-search"></span>
                     </button>
                 </div>
             </div>
 
             <div class="resultados">
-                <!-- <ul>
-                    <li ng-repeat="parada in search.paradas | filter: search.busqueda track by $index ">
+                <ul class="busList">
+                    <li ng-repeat="parada in search.paradas.lista | filter: search.busqueda track by parada.parada ">
+                            <i ng-click="search.paradas.toggleFav($index)" class="fa fa-star" ng-class="{'active' : parada.isFav}"></i>
                         Parada: <strong>{{parada.parada}} </strong>| Buses: <span ng-repeat="buses in parada.buses">{{buses}}{{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span>
                     </li>
                 </ul>
-                <div ng-if="(search.paradas | filter: search.busqueda).length == 0">
+                <div ng-if="(search.paradas.lista | filter: search.busqueda).length == 0">
                     Lo sentimos, no hay resultados
-                </div> -->
+                </div>
             </div>
 
         </div>
@@ -39,25 +40,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
         <script>
 
-            
-
             // APP
             angular.module('app', []);
-
 
             // CONTROLLERS
 
             // ** Buscador
             angular.module('app').controller('buscadorCtrl', buscadorCtrl)
 
-            function buscadorCtrl ($scope, paradas) {
+            function buscadorCtrl (paradas) {
 
                 var self = this;
-                self.paradas = paradas;     
-                console.log(self.paradas);
-                
-                $scope.buscar = function(srch) {
-                    console.log(srch);
+                self.paradas = paradas;
+                self.busqueda = {parada:""};
+
+                self.buscar = function() {
+                    console.log(self.busqueda);
                 }
 
             }
@@ -67,43 +65,54 @@
 			angular.module('app').service('paradas', paradaService);
 
             function paradaService() {
+                
+                var toggleFav = function(index) {
+                    paradas.lista[index].isFav = !paradas.lista[index].isFav 
+                }
 
-                var lista = [
-                    {
-                        parada: "123",
-                        buses: [
-                            234,
-                            12,
-                            323
-                        ]
-                    },
-                    {
-                        parada: "234",
-                        buses: [
-                            1,
-                            12,
-                            45
-                        ]
-                    },
-                    {
-                        parada: "434",
-                        buses: [
-                            45,
-                            123,
-                            54
-                        ]
-                    },
-                    {
-                        parada: "523",
-                        buses: [
-                            132,
-                            433,
-                            123
-                        ]
-                    }
-                ]
+                var paradas = {
+                    lista: [
+                        {
+                            parada: "123",
+                            buses: [
+                                234,
+                                12,
+                                323
+                            ],
+                            isFav: true
+                        },
+                        {
+                            parada: "234",
+                            buses: [
+                                1,
+                                12,
+                                45
+                            ],
+                            isFav: false
+                        },
+                        {
+                            parada: "434",
+                            buses: [
+                                45,
+                                123,
+                                54
+                            ],
+                            isFav: true
+                        },
+                        {
+                            parada: "523",
+                            buses: [
+                                132,
+                                433,
+                                123
+                            ],
+                            isFav: false
+                        }
+                    ],
+                    toggleFav: toggleFav
+                }
 
-                return lista;
+                return paradas;
             }
             
         </script>
