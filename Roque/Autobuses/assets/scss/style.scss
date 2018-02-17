@@ -1,6 +1,8 @@
-$bg_main: #f1f1f1;
-$main: #444;
+$bg_main: #333;
+$main: #eee;
 
+
+//RESET
 body {
     background: $bg_main;
     padding: 50px;
@@ -23,21 +25,77 @@ ul {
     margin: 0;
 }
 
-.buscador {
+//BUSCADOR
+#buscador {
 
-    .input-helper {
+    .buscador {
+
+        .input-helper {
+            position: relative;
+    
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 40px;
+                background: none;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .resultados {
+        color: $main;
+
+        .busList {
+            margin-top: 60px;
+        } 
+    }
+}
+
+
+//FAVORITOS
+#favoritos {
+
+    .busList {
+        margin-top: 30px;
+    }
+}
+
+
+//COMPONENTS
+.busList {
+
+    li {
+        padding: 20px;
+        background: white;
+        margin-bottom: 10px;
         position: relative;
+        background: $main;
+        color: $bg_main;
 
-        button {
+        &:hover, &.active {
+        }
+
+        i {
             position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 40px;
-            background: none;
-            border: none;
-            outline: none;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -40px;
+            font-size: 25px;
             cursor: pointer;
+            color: rgba(white, .2);
+
+            &:hover {
+                color: rgba(#f4df42, .7);
+            }
+
+            &.active {
+                color: #f4df42;
+            } 
         }
     }
 }
