@@ -15,7 +15,7 @@
 
 		<ul>
 			<li ng-repeat="listado in tiempo.tiempos | filter:tiempo.search | filter:tiempo.termino track by listado.numParada">
-				<i class="far fa-star"></i> <button>Número de la parada: {{listado.nombre}}</button>
+				<i class="far fa-star"></i> Número de la parada: {{listado.nombre}} <button>Ir <i class="fas fa-arrow-right"></i></button>
 			</li>
 		</ul>
 
