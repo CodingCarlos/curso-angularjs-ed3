@@ -8,6 +8,9 @@ input {
   padding: 10px;
   border: 1px solid #ccc; }
 
+a {
+  color: inherit; }
+
 h4 {
   color: #eee; }
 
@@ -15,6 +18,9 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0; }
+
+.container {
+  position: relative; }
 
 #buscador .buscador .input-helper {
   position: relative; }
@@ -37,6 +43,9 @@ ul {
 #favoritos .busList {
   margin-top: 30px; }
 
+#parada {
+  color: #eee; }
+
 .busList li {
   padding: 20px;
   background: white;
@@ -56,3 +65,26 @@ ul {
       color: rgba(244, 223, 66, 0.7); }
     .busList li i.active {
       color: #f4df42; }
+
+.favBtn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  top: -40px;
+  right: 10px;
+  transition: .15s ease-in; }
+  .favBtn span {
+    color: #f4df42;
+    transition: .15s ease-in; }
+  .favBtn:hover {
+    background: #f4df42; }
+    .favBtn:hover span {
+      color: #333; }
+
+.arrowBtn {
+  top: -40px;
+  right: 10px;
+  position: absolute; }

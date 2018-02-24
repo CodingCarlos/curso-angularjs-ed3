@@ -15,6 +15,10 @@ input {
     border: 1px solid #ccc;
 }
 
+a {
+    color: inherit;
+}
+
 h4 {
     color: $main;
 }
@@ -23,6 +27,10 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.container {
+    position: relative;
 }
 
 //BUSCADOR
@@ -65,6 +73,11 @@ ul {
     }
 }
 
+//LISTA DE PARADAS
+#parada {
+    color: $main;
+}
+
 
 //COMPONENTS
 .busList {
@@ -98,4 +111,35 @@ ul {
             } 
         }
     }
+}
+
+.favBtn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid rgba(white,.2);
+    top: -40px;
+    right: 10px;
+    transition: .15s ease-in;
+
+    span {
+        color: #f4df42;
+        transition: .15s ease-in;
+    }
+
+    &:hover {
+        background: #f4df42;
+
+        span {
+            color: $bg_main;
+        }
+    }
+}
+
+.arrowBtn {
+    top: -40px;
+    right: 10px;
+    position: absolute;
 }
