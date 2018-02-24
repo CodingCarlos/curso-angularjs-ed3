@@ -1,59 +1,31 @@
-<html ng-app="app">
+<html ng-app="time">
 	<head>
-		<title>Buscador</title>
+		<title>Líneas</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	</head>
-	<body>
-		<div ng-controller="nameController as Name">
-			<h1>Por favor, busca una línea de autobús:</h1>
-			Busca autobus: <input type="text" ng-model="Name.bus.name" />
-			<button ng-click="Name.buscar()">Buscar</button>
 
-			<div class="lista">
-				<h2>Autobús buscado: {{Name.resultado}}</h2>
-				
-			</div>
+	<body>
+		<div class="tiempo" ng-controller="tiempoController as tiempo">
+
+			<input type="text" ng-model="tiempo.search" />
+			<br />
+			Buscar por: 
+			<input type="radio" name="termino" ng-model="tiempo.termino" value="paradas" /> Paradas
+			<input type="radio" name="termino" ng-model="tiempo.termino" value="linea" /> Linea
+
+			<ul>
+				<li ng-repeat="listado in tiempo.tiempos | filter:tiempo.search | filter:tiempo.termino track by listado.numParada">
+					<i class="far fa-star"></i> Número de la parada: {{listado.nombre}} <button>Ir <i class="fas fa-arrow-right"></i></button>
+				</li>
+			</ul>
+
+			{{tiempos.numParadas}}
 		</div>
 
-
-
-
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
-		<script>
-		// App
-		angular.module('app',[]);
-
-		// Controller
-		angular.module('app').controller('nameController', nameCtrl);
-
-		function nameCtrl(bus) {
-			console.log('Controladoooor!!!!');
-
-			var self = this;
-
-			self.bus = bus;
-
-			self.resultado = '';
-
-			self.buscar = function() {
-				console.log(bus.name);
-				self.resultado = bus.name;
-			}
-
-
-		}
-
-		// Services
-		angular.module('app').service('bus', userService);
-
-		function userService() {
-			console.log('Serviciooooooo!!!');
-
-			var bus = {
-				name: ''
-			}
-			return bus;
-		}
-		</script>
+		<script src="/js/app.js"></script>
+		<script src="/services/datos.js"></script>
+		<script src="/controllers/tiempos.js"></script>
 	</body>
 </html>
