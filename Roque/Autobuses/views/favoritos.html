@@ -1,6 +1,6 @@
 <div id="favoritos" class="container" ng-controller="favCtrl as fav">
 
-    <a class="favBtn" ng-href="#!/">
+    <a class="favBtn" ui-sref="index">
         <span class="fa fa-arrow-left"></span>
     </a>
 
@@ -8,9 +8,9 @@
     <ul class="busList">
         <li ng-repeat="parada in fav.paradas.lista track by parada.parada" ng-if="parada.isFav">
             <i ng-click="fav.paradas.toggleFav($index)" class="fa fa-star" ng-class="{'active' : parada.isFav}"></i>
-            <a ng-href="#!/parada/{{parada.parada}}">
+            <div ui-sref="parada({id: parada.parada})">
                 Parada: <strong>{{parada.parada}} </strong>| Buses: <span ng-repeat="buses in parada.buses">{{buses}}{{$last ? '' : ($index==Users.length-2) ? ' and ' : ', '}}</span>
-            </a>
+            </div>
         </li>
     </ul>
     <div ng-if="(search.paradas | filter: search.busqueda).length == 0">

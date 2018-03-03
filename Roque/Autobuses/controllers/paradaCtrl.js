@@ -1,8 +1,8 @@
 angular.module('app').controller('paradaCtrl', paradaCtrl);
 
-function paradaCtrl(paradas, $routeParams) {
+function paradaCtrl(paradas, $stateParams) {
     var self = this;
 
     self.paradas = paradas;
-    self.paradaNumber = $routeParams.id;    
+    self.paradaNumber = $stateParams.id;    
 }

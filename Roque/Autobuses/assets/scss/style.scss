@@ -83,33 +83,40 @@ ul {
 .busList {
 
     li {
-        padding: 20px;
-        background: white;
-        margin-bottom: 10px;
         position: relative;
-        background: $main;
-        color: $bg_main;
 
-        &:hover, &.active {
-        }
-
-        i {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -40px;
-            font-size: 25px;
+        > div {
+            padding: 20px;
+            background: white;
+            margin-bottom: 10px;
+            position: relative;
+            background: $main;
+            color: $bg_main;
             cursor: pointer;
-            color: rgba(white, .2);
-
-            &:hover {
-                color: rgba(#f4df42, .7);
+            transition: .3s ease-in;
+    
+            &:hover, &.active {
+                background: white;
             }
-
-            &.active {
-                color: #f4df42;
-            } 
         }
+    }
+
+    i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -40px;
+        font-size: 25px;
+        cursor: pointer;
+        color: rgba(white, .2);
+
+        &:hover {
+            color: rgba(#f4df42, .7);
+        }
+
+        &.active {
+            color: #f4df42;
+        } 
     }
 }
 

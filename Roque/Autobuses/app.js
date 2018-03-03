@@ -1,16 +1,22 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ui.router'])
 
-.config(function($routeProvider) {
+.config(['$stateProvider', '$urlRouterProvider', 
+    function($stateProvider, $urlRouterProvider) {
 
-    $routeProvider
-        .when("/", {
-            templateUrl : "views/buscador.html"
-        })
-        .when("/parada/:id", {
-            templateUrl : "views/parada.html"
-        })
-        .when("/favoritos", {
-            templateUrl : "views/favoritos.html"
-        });
-});
-
+        $urlRouterProvider.otherwise('/');
+        
+        $stateProvider
+            .state('index', {
+                url: "/",
+                templateUrl: "views/buscador.html"
+            })
+            .state('parada', {
+                url: "/parada/:id",
+                templateUrl: "views/parada.html"
+            })
+            .state('favoritos', {
+                url: "/favoritos",
+                templateUrl: "views/favoritos.html"
+            })
+    }
+]);
