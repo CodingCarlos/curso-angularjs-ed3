@@ -1,4 +1,4 @@
-angular.module('time', ['ngRoute']).config(['$stateProvider', '$urlRouterProvider', 
+angular.module('time', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', 
 
 		function($stateProvider, $urlRouterProvider) {
 
@@ -7,7 +7,7 @@ angular.module('time', ['ngRoute']).config(['$stateProvider', '$urlRouterProvide
 			$stateProvider
 				.state('home', {
 					url: "/",
-					template: "index.html"
+					templateUrl: "index.html"
 				})
 				.state('favoritos', {
 					url: "/favoritos",
@@ -20,6 +20,14 @@ angular.module('time', ['ngRoute']).config(['$stateProvider', '$urlRouterProvide
 				.state('menu', {
 					url: "/menu",
 					templateUrl: "views/menu.html"
+				})
+				.state('footer', {
+					url: "/footer",
+					templateUrl: "views/footer.html"
+				})
+				.state('contenido', {
+					url: "/contenido",
+					templateUrl: "views/contenido.html"
 				})
 		}
 	]);

@@ -13,29 +13,47 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
   </head>
   
-  <body class="inicio">
+  <body class="contacto">
 
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
           <h3 class="masthead-brand">Autobuses</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#/">Inicio</a>
-            <a class="nav-link" href="#/favoritos">Favoritos</a>
-            <a class="nav-link" href="#/contacto">Contacto</a>
+            <a class="nav-link active" href="#">Inicio</a>
+            <a class="nav-link" href="#">Favoritos</a>
+            <a class="nav-link" href="#">Contacto</a>
           </nav>
         </div>
       </header>
-	  
-	  <div ng-view></div>
 
       <main role="main" class="inner cover" ng-controller="tiempoController as tiempo">
-        <h1 class="cover-heading">Número de parada</h1>
+        <h1 class="cover-heading">Contacta con nosotros</h1>
 		<div class="tiempo container-fluid">
-			<input class="form-control" type="text" placeholder="p.e. 6327" ng-model="tiempo.search">
-			<ul class="listadoparadas">
-				<li ng-repeat="listado in tiempo.tiempos | filter:tiempo.search">{{listado.numParada}}, {{listado.nombre}}</li>
-			</ul>
+			<form>
+			  <div class="form-group">
+				<label for="exampleInputName1">Nombre</label>
+			  	<input class="form-control" type="text" placeholder="Introduce tu nombre" id="exampleInputName1" aria-describedby="nameHelp">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputEmail1">Email</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu email">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputPhone1">Teléfono</label>
+				<input type="numbre" class="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp" placeholder="Introduce tu email">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleFormControlTextarea1">Comentario</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			  </div>
+			  
+			  
+			  
+			  
+			  <button type="submit" class="btn btn-primary">Enviar</button>
+			</form>
+			
 		</div>
       </main>
 
@@ -45,6 +63,15 @@
         </div>
       </footer>
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -52,11 +79,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
-		
-	<script src="/js/app.js"></script>
-	<script src="/services/datos.js"></script>
-	<script src="/controllers/tiempos.js"></script>
-		
+	
+	<script>
+	angular.module('time', []);
+	
+	
+	
+	
+	</script>
+	
+	
   </body>
 </html>

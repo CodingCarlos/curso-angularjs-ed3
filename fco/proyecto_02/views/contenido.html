@@ -1,0 +1,9 @@
+<main role="main" class="inner cover" ng-controller="tiempoController as tiempo">
+	<h1 class="cover-heading">Número de parada</h1>
+	<div class="tiempo container-fluid">
+		<input class="form-control" type="text" placeholder="p.e. 6327" ng-model="tiempo.search">
+		<ul class="listadoparadas">
+			<li ng-repeat="listado in tiempo.tiempos | filter:tiempo.search">{{listado.numParada}}, {{listado.nombre}}</li>
+		</ul>
+	</div>
+</main>
