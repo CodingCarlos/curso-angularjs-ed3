@@ -3,18 +3,21 @@ angular.module('app').filter('minutes', [minutesFilter]);
 function minutesFilter() {
 	return function(input) {
         input = Number(input) || 0;
-        var out;
 
 		if (input == 999999) {
 
-            out = '+ 20';
+            output = '+ 20 min';
+
+        } else if (input < 60) {
+
+            output = input + ' seg';
 
         } else {
 
-            out = (input/60).toFixed();
+            output = (input/60).toFixed() + ' min';
 
         }
 
-		return out + ' min';
+		return output;
 	};
 }

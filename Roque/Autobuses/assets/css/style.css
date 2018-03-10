@@ -47,6 +47,13 @@ ul {
   color: #eee; }
   #parada .loading {
     text-align: center; }
+  #parada .horarios ul li {
+    transition: .2s ease-in;
+    position: relative; }
+    #parada .horarios ul li.ng-enter {
+      top: 20px; }
+    #parada .horarios ul li.ng-enter-active {
+      top: 0; }
 
 .busList li {
   position: relative; }
