@@ -11,11 +11,12 @@
     </head>
     <body ng-app="app">
 
-        <ui-view></ui-view>
+        <div ui-view></div> 
 
         <!-- CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
 
         <!-- INIT -->
         <script src="app.js"></script>
@@ -27,6 +28,10 @@
 
          <!-- SERVICES -->
          <script src="services/paradas.js"></script>
+         <script src="services/callEMT.js"></script>
+
+         <!-- FILTERS -->
+         <script src="filters/minutes.js"></script>
 
     </body>
 </html>
